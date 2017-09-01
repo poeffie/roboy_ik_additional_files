@@ -1,0 +1,1 @@
+rosrun moveit_ikfast create_ikfast_moveit_plugin.py pabi_legs leg pabi_legs_ikfast_leg_plugin /home/offi/catkin_ws/src/pabi_legs_ikfast_leg_plugin/src/pabi_legs_leg_ikfast_solver.cpp

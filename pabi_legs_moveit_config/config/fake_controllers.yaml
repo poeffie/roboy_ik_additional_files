@@ -1,0 +1,6 @@
+controller_list:
+  - name: fake_leg_controller
+    joints:
+      - pabi_legs__link_4_JOINT_0
+      - pabi_legs__link_0_JOINT_3
+      - pabi_legs__link_1_JOINT_0
