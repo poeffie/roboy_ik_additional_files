@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<links display_range="-1.0 1.0 -1.0 1.0 -1.0 1.0" view_angle="-37 32">
+  <link_rigid num="1" name="Hip Left">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.9758</mass>
+      <com_location>0.0 0.0 -0.15</com_location>
+      <end_location>0.0 0.0 -0.30</end_location>
+      <inertia ref="com">
+        <Ixx>0.0110</Ixx>
+        <Iyy>0.0002</Iyy>
+        <Izz>0.0110</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>0</num>
+      <location>0.1 0.0 0.0</location>
+    </parent>
+  </link_rigid>
+  <link_rigid num="2" name="Upper Leg Left">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.5366</mass>
+      <com_location>0.0 0.0 -0.15</com_location>
+      <end_location>0.0 0.0 -0.30</end_location>
+      <inertia ref="com">
+        <Ixx>0.0038</Ixx>
+        <Iyy>0.00015</Iyy>
+        <Izz>0.0037</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>1</num>
+      <location>0.0 0.0 -0.30</location>
+    </parent>
+  </link_rigid>
+  <link_rigid num="3" name="Lower Leg Left">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.5366</mass>
+      <com_location>0.05 0.0 0.0</com_location>
+      <end_location>0.1 0.0 0.0</end_location>
+      <inertia ref="com">
+        <Ixx>0.0038</Ixx>
+        <Iyy>0.00015</Iyy>
+        <Izz>0.0037</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>2</num>
+      <location>0.0 0.0 -0.30</location>
+    </parent>
+  </link_rigid>
+  <link_rigid num="4" name="Hip Right">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.9758</mass>
+      <com_location>0.0 0.0 -0.15</com_location>
+      <end_location>0.0 0.0 -0.30</end_location>
+      <inertia ref="com">
+        <Ixx>0.0110</Ixx>
+        <Iyy>0.0002</Iyy>
+        <Izz>0.0110</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>0</num>
+      <location>-0.1 0.0 0.0</location>
+    </parent>
+  </link_rigid>
+  <link_rigid num="5" name="Upper Leg Right">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.5366</mass>
+      <com_location>0.0 0.0 -0.15</com_location>
+      <end_location>0.0 0.0 -0.30</end_location>
+      <inertia ref="com">
+        <Ixx>0.0038</Ixx>
+        <Iyy>0.00015</Iyy>
+        <Izz>0.0037</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>4</num>
+      <location>0.0 0.0 -0.30</location>
+    </parent>
+  </link_rigid>
+  <link_rigid num="6" name="Lower Leg Right">
+    <joint type="R_Y" q_initial="0"/>
+    <physical>
+      <mass>0.5366</mass>
+      <com_location>-0.05 0.0 0.0</com_location>
+      <end_location>-0.1 0.0 0.0</end_location>
+      <inertia ref="com">
+        <Ixx>0.0038</Ixx>
+        <Iyy>0.00015</Iyy>
+        <Izz>0.0037</Izz>
+        <Ixy>0.0</Ixy>
+        <Ixz>0.0</Ixz>
+        <Iyz>0.0</Iyz>
+      </inertia>
+    </physical>
+    <parent>
+      <num>5</num>
+      <location>0.0 0.0 -0.30</location>
+    </parent>
+  </link_rigid>
+</links>
