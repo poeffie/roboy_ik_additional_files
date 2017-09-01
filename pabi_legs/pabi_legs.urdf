@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<robot name="pabi_legs">
+  <joint name="pabi_legs__link_0_JOINT_3" type="revolute">
+    <parent link="pabi_legs__link_0"/>
+    <child link="pabi_legs__link_1"/>
+    <origin rpy="0  0  0" xyz="0    0   -0.31"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi_legs__link_1_JOINT_0" type="revolute">
+    <parent link="pabi_legs__link_1"/>
+    <child link="pabi_legs__link_0_0"/>
+    <origin rpy="0  0  0" xyz="0     0    -0.315"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi_legs__link_2_JOINT_4" type="revolute">
+    <parent link="pabi_legs__link_2"/>
+    <child link="pabi_legs__link_3"/>
+    <origin rpy="0  0  0" xyz="0    0   -0.31"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi_legs__link_3_JOINT_1" type="revolute">
+    <parent link="pabi_legs__link_3"/>
+    <child link="pabi_legs__link_1_0"/>
+    <origin rpy="0  0  0" xyz="0     0    -0.315"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi_legs__link_4_JOINT_0" type="revolute">
+    <parent link="pabi_legs__link_4"/>
+    <child link="pabi_legs__link_0"/>
+    <origin rpy="0  0  0" xyz="0.03394 -0.17347  0.25154"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi_legs__link_4_JOINT_1" type="revolute">
+    <parent link="pabi_legs__link_4"/>
+    <child link="pabi_legs__link_2"/>
+    <origin rpy="0  0  0" xyz="0.03394  0.00653  0.25154"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <link name="pabi_legs__link_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_0_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_1">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_1_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_2">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_3">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <inertia ixx="0.145833" ixy="0" ixz="0" iyy="0.145833" iyz="0" izz="0.125"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0    0   -0.15"/>
+      <geometry>
+        <cylinder length="0.3" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi_legs__link_4">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0.03394 -0.08347  0.28654"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="pabi_legs__collision">
+      <origin rpy="0  0  0" xyz="0.03394 -0.08347  0.28654"/>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+    </collision>
+    <visual name="pabi_legs__visual">
+      <origin rpy="0  0  0" xyz="0.03394 -0.08347  0.28654"/>
+      <geometry>
+        <box size="0.05 0.2 0.05"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
