@@ -1,15 +1,20 @@
-/*********************************************************************
- * Software License Agreement (BSD License)
+/**
+ *  @file    motion.cpp
+ *  @author  Johannes Offner
+ *  @date    8/28/2017
+ *  @version 1.0
  *
- * Inverse Kinematics
- * 
- * by Johannes Offner
- * 
- * 22.08.2017
- * 
- *********************************************************************/
-
-/* Author: Johannes Offner */
+ *  @brief Roboy 2.0, calculate Inverse Kinematics, experimental publisher
+ *
+ *  @section DESCRIPTION
+ *
+ * This is experimental publisher node, that calculates FK first to get a valid position
+ * and visualizes the moement for a few seconds.
+ * Afterwards it calculates IK for "robot_description" if possible nd visualizes the movement 
+ * in Rviz. Finally the joint trajectory will be published.
+ *
+ *
+ */
 
 #include <pluginlib/class_loader.h>
 #include <ros/ros.h>
@@ -53,7 +58,7 @@ int main(int argc, char** argv)
   const std::vector<std::string> &joint_names = joint_model_group->getVariableNames();
   
   
-  // Get Joint Values
+  // Get Initial Joint Values
   // ^^^^^^^^^^^^^^^^
   // We can retreive the current set of joint values stored in the state for the right arm.
   std::vector<double> joint_values;
@@ -65,7 +70,7 @@ int main(int argc, char** argv)
   
   // +*********************************************** Forward Kinematics***************************************************************
   // +*********************************************************************************************************************************
-  
+  /* We output here the init position of the end effector (the transformation) after FK */
   const Eigen::Affine3d &end_effector_state_init = kinematic_state->getGlobalLinkTransform("pabi_legs__link_0_0");
   ROS_INFO_STREAM("Init_Translation: " << end_effector_state_init.translation());
   ROS_INFO_STREAM("Init_Rotation: " << end_effector_state_init.rotation());
@@ -79,11 +84,13 @@ int main(int argc, char** argv)
   joint_values[0] = -0.15;
   joint_values[1] = 0.2;
   
+  /* Calculating FK */
   robot_state::RobotState goal_state(robot_model);
   goal_state.setJointGroupPositions(joint_model_group, joint_values);
   moveit_msgs::Constraints joint_goal = kinematic_constraints::constructGoalConstraints(goal_state, joint_model_group);
 
 
+  /* We output here the final position of the end effector (the transformation) after FK */
   ROS_INFO("Forward Kinematics");
   kinematic_state->setJointGroupPositions(joint_model_group, joint_values);
   const Eigen::Affine3d &end_effector_state = kinematic_state->getGlobalLinkTransform("pabi_legs__link_0_0");
@@ -129,7 +136,7 @@ int main(int argc, char** argv)
                                                          << "Available plugins: " << ss.str());
   }
   
-  // PLANNING INTERFACE
+  /* Definitions */
   planning_interface::MotionPlanRequest req;
   planning_interface::MotionPlanResponse res;
   req.group_name = "leg";
@@ -160,12 +167,6 @@ int main(int argc, char** argv)
   display_publisher.publish(display_trajectory);
   sleep_time.sleep();
   ROS_INFO("STOPPING VISUALIZATION...");
-  kinematic_state->setJointGroupPositions(joint_model_group, joint_values);
-  const Eigen::Affine3d &end_effector_state2 = kinematic_state->getGlobalLinkTransform("pabi_legs__link_0_0");
-  ROS_INFO_STREAM("FK End Translation REAL: " << end_effector_state2.translation());
-  ROS_INFO_STREAM("FK End Rotation REAL: " << end_effector_state2.rotation());
-
-  //sleep_time.sleep();
   
   // ********************************************** INVERSE KINEMATICS ************************************************************
   // +*********************************************************************************************************************************
@@ -173,30 +174,15 @@ int main(int argc, char** argv)
   const Eigen::Affine3d &end_effector_state_ik_start = kinematic_state->getGlobalLinkTransform("pabi_legs__link_0_0");
   ROS_INFO_STREAM("Translation before IK: " << end_effector_state_ik_start.translation());
   ROS_INFO_STREAM("Rotation before IK: " << end_effector_state_ik_start.rotation());
-  // Pose Goal
-  // ^^^^^^^^^
   
-  std::string poses[4];
-  ifstream myfile("/home/offi/catkin_ws/src/roboy_ik/src/pose.txt");
-  int i = 0;
-  if(!myfile) 
-  {
-    cout<<"Error opening output file"<<endl;
-    system("pause");
-    return -1;
-  }
-  while(!myfile.eof())
-  {
-    getline(myfile, poses[i], '\n');
-    cout << poses[i] << "\n";
-  }
   
+  /* At the moment the FK position has to be fed in manually into here. TODO: read it out and set the values as IK pose parameters */
   // 0.03394;  -0.17347;   -0.37346;
   geometry_msgs::PoseStamped pose;
   pose.header.frame_id = "odom_combined";
-  pose.pose.position.x = atof(poses[0].c_str());
-  pose.pose.position.y = atof(poses[1].c_str());
-  pose.pose.position.z = atof(poses[2].c_str());
+  pose.pose.position.x = 0.03394;
+  pose.pose.position.y = -0.17347;
+  pose.pose.position.z = -0.37346;
   pose.pose.orientation.w = 1.0;;
 
 
