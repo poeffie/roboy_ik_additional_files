@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<robot name="pabi">
+  <joint name="pabi__hip_1" type="revolute">
+    <parent link="pabi__hip"/>
+    <child link="pabi__thigh_right"/>
+    <origin rpy="1.57079  0       0" xyz="-0.14742  0.4191   1.02342"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi__knee_1" type="revolute">
+    <parent link="pabi__thigh_right"/>
+    <child link="pabi__shank_right"/>
+    <origin rpy="0  0  0" xyz="-0.00253 -0.536    0"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi__hip_2" type="revolute">
+    <parent link="pabi__hip"/>
+    <child link="pabi__thigh_left"/>
+    <origin rpy="1.57079  0       0" xyz="-0.14762  0.5889   1.02342"/>
+    <axis xyz="-1  0  0"/>
+    <limit effort="0.0" lower="-1.1344640138" upper="1.1344640138" velocity="0.0"/>
+  </joint>
+  <joint name="pabi__knee_2" type="revolute">
+    <parent link="pabi__thigh_left"/>
+    <child link="pabi__shank_left"/>
+    <origin rpy="0  0  0" xyz="-0.00006  -0.53600   0.0"/>
+    <axis xyz="-1  0  0"/>
+    <limit effort="0.0" lower="-10.0" upper="10.0" velocity="0.0"/>
+  </joint>
+  <joint name="pabi__shank_left_JOINT_0" type="revolute">
+    <parent link="pabi__shank_left"/>
+    <child link="pabi__link_0"/>
+    <origin rpy="-1.5708  0      0" xyz="-0.00255 -0.48242 -0.03245"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.0" lower="-10" upper="10" velocity="0.0"/>
+  </joint>
+  <joint name="pabi__shank_right_JOINT_1" type="revolute">
+    <parent link="pabi__shank_right"/>
+    <child link="pabi__link_1"/>
+    <origin rpy="-1.5708  0      0" xyz="-0.00255 -0.48242  0.03245"/>
+    <axis xyz="1  0  0"/>
+    <limit effort="0.0" lower="-10" upper="10" velocity="0.0"/>
+  </joint>
+  <link name="pabi__hip">
+    <inertial>
+      <mass value="4.515518105125237"/>
+      <origin rpy="1.57079  0       0" xyz="-0.15001  0.504    1.17169"/>
+      <inertia ixx="7.407739933398221" ixy="0.7937299806675692" ixz="2.666594736599786" iyy="1.286253981870223" iyz="-0.3416972307213158" izz="6.325208064031285"/>
+    </inertial>
+    <collision name="pabi__hip_collision">
+      <origin rpy="1.57079  0       0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/collision/COL_hip.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__hip_visual">
+      <origin rpy="1.57079  0       0" xyz="0  0  0"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/visual/VIS_hip.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi__shank_right">
+    <inertial>
+      <mass value="2.0625685823803326"/>
+      <origin rpy="0  0  0" xyz="6.00000000e-05  -3.72880000e-01   2.13500000e-02"/>
+      <inertia ixx="0.41051160028001255" ixy="0.03536587354463122" ixz="0.09868851688853236" iyy="0.3844693086888858" iyz="-0.12296427581377094" izz="0.13881430150315646"/>
+    </inertial>
+    <collision name="pabi__shank_right_collision">
+      <origin rpy="0  0  0" xyz="0.14995 -0.48742  0.4191"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/collision/COL_shank_right.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__shank_right_visual">
+      <origin rpy="0  0  0" xyz="0.14995 -0.48742  0.4191"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/visual/VIS_shank_right.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi__thigh_right">
+    <inertial>
+      <mass value="2.6030004321947455"/>
+      <origin rpy="0  0  0" xyz="-0.00257 -0.27467  0"/>
+      <inertia ixx="1.965247721462291" ixy="0.29241453399707795" ixz="0.8176001518602699" iyy="0.5186775209873178" iyz="-0.16376074275087069" izz="1.5640303772254374"/>
+    </inertial>
+    <collision name="pabi__thigh_right_collision">
+      <origin rpy="0  0  0" xyz="0.14742 -1.02342  0.4191"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/collision/COL_thigh_right.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__thigh_right_visual">
+      <origin rpy="0  0  0" xyz="0.14742 -1.02342  0.4191"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/visual/VIS_thigh_right.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi__shank_left">
+    <inertial>
+      <mass value="2.0625684626201046"/>
+      <origin rpy="0  0  0" xyz="-0.00261 -0.37288 -0.02135"/>
+      <inertia ixx="0.8523453884801894" ixy="0.0355531838187655" ixz="0.13945025914903858" iyy="0.8265572509379822" iyz="-0.1891812363603959" izz="0.13906841015606541"/>
+    </inertial>
+    <collision name="pabi__shank_left_collision">
+      <origin rpy="0  0  0" xyz="0.14768 -0.48742  0.5889"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/collision/COL_shank_left.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__shank_left_visual">
+      <origin rpy="0  0  0" xyz="0.14768 -0.48742  0.5889"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/visual/VIS_shank_left.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi__thigh_left">
+    <inertial>
+      <mass value="2.603000551950703"/>
+      <origin rpy="0  0  0" xyz="-0.00252 -0.27467  0"/>
+      <inertia ixx="2.410775842792121" ixy="0.29256184740247115" ixz="1.1470166148065495" iyy="0.9643193370822432" iyz="-0.23028167935546787" izz="1.5641442977245283"/>
+    </inertial>
+    <collision name="pabi__thigh_left_collision">
+      <origin rpy="0  0  0" xyz="0.14762 -1.02342  0.5889"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/collision/COL_thigh_left.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__thigh_left_visual">
+      <origin rpy="0  0  0" xyz="0.14762 -1.02342  0.5889"/>
+      <geometry>
+        <mesh filename="package://pysdf/meshes/visual/VIS_thigh_left.STL" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+ <link name="pabi__link_0">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="pabi__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  <link name="pabi__link_1">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>
+    <collision name="pabi__collision">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="pabi__visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+</robot>
